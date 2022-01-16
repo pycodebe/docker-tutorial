@@ -15,18 +15,18 @@ Debian machine
 
 
 
-####Pull the Debian image from [docker Hub](https://hub.docker.com/_/debian)
+#### Pull the Debian image from [docker Hub](https://hub.docker.com/_/debian)
 ```markdown
 docker pull debian
 ```
 
 
-####Check if the Debian image has been downloaded
+#### Check if the Debian image has been downloaded
 ```markdown
 docker image debian
 ```
 
-####Create the debian-server container
+#### Create the debian-server container
 ```markdown
 docker run -it --name debian-server -p 2200:22 -d debian:latest
 ```
