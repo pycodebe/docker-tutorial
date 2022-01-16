@@ -1,7 +1,3 @@
-## Docker tutorial
-
-This website is a collection of tutorials based on the issues that I have had to deal with during my projects
-
 ### Table of Content
 - [SSH on Container to access it remotely](#SSH on Container to access it remotely)
 
@@ -10,24 +6,28 @@ This website is a collection of tutorials based on the issues that I have had to
 ### SSH on Container to access it remotely
 
 For this demo I will be using the Debian image in docker. I am going to set up the SSH server, and then I will set up 
-permissions for the user to access the container remotely. Then I will make a SSH connection from my Windows to the 
+permissions for the user to access the container remotely. Then I will make an SSH connection from my Windows to the 
 Debian machine
 
-
-
-####Pull the Debian image from [docker Hub](https://hub.docker.com/_/debian)
-```markdown
+First you need to pull the debian images from docker Hub on your local machine and create a container using the 
+command *docker run*.
+```
 docker pull debian
-```
-
-
-####Check if the Debian image has been downloaded
-```markdown
-docker image debian
-```
-
-####Create the debian-server container
-```markdown
+docker images
 docker run -it --name debian-server -p 2200:22 -d debian:latest
+docker ps
 ```
 
+On the new container *debian-server* install *openssh-server* and nano to edit the configuration file. 
+```
+apt update
+apt install openssh-server
+apt install nano
+
+## if you don't know the password of root:
+passwd
+```
+Edit the configuration file
+```
+nano /etc/ssh/sshd_config
+```
