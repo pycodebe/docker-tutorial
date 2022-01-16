@@ -12,6 +12,9 @@ For this demo I will be using the Debian image in docker. I am going to set up t
 permissions for the user to access the container remotely. Then I will make an SSH connection from my Windows to the 
 Debian machine
 
+<br />
+
+#### Local machine 
 First you need to pull the debian images from docker Hub on your local machine and create a container using the 
 command *docker run*.
 ```
@@ -21,7 +24,10 @@ docker run -it --name debian-server -p 2200:22 -d debian:latest
 docker ps
 ```
 
-On the new container *debian-server* install *openssh-server* and nano to edit the configuration file. 
+<br />
+
+#### Docker container 
+On the new container *debian-server* install *openssh-server* and nano. 
 ```
 apt update
 apt install openssh-server
@@ -30,7 +36,22 @@ apt install nano
 ## if you don't know the password of root:
 passwd
 ```
-Edit the configuration file
+Edit the configuration file and enable root login over SSH. 
 ```
 nano /etc/ssh/sshd_config
 ```
+```
+# Authentication:
+
+#LoginGraceTime 2m
+#PermitRootLogin prohibit-password
+PermitRootLogin Yes
+#StrictModes yes
+#MaxAuthTries 6
+#MaxSessions 10
+```
+Start the SSH server
+```
+service sshd start
+```
+
