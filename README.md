@@ -3,7 +3,7 @@
 
 <br />
 
-<<<<<<< HEAD
+
 ### SSH on Container to access it remotely
 
 For this demo I will be using the Debian image in docker. I am going to set up the SSH server, and then I will set up 
@@ -32,5 +32,3 @@ Edit the configuration file
 ```
 nano /etc/ssh/sshd_config
 ```
-=======
->>>>>>> d933b7dcc67acce6b8ce4c9a65c149291ebe1cca
