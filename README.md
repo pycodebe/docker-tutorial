@@ -59,6 +59,7 @@ ssh root@localhost -p 2200
 ```
 **Congratulation, you are connected to the remote Debian machine**
 
+<br />
 
 ## Save the state of a container
 Sometimes you would need to save the state of your container and not start from scratch
