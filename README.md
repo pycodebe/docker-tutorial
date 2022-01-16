@@ -2,6 +2,7 @@
 
 ### Table of Content
 - [SSH on Container to access it remotely](#SSH on Container to access it remotely)
+- [Save the state of a container](#Save the state of a container)
 
 <br />
 
@@ -57,3 +58,10 @@ service sshd start
 ssh root@localhost -p 2200
 ```
 **Congratulation, you are connected to the remote Debian machine**
+
+
+## Save the state of a container
+Sometimes you would need to save the state of your container and not start from scratch
+```
+docker commit <container>
+```
